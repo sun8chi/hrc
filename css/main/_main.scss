@@ -1,0 +1,337 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:800);
+@import url(https://fonts.googleapis.com/css?family=Baloo+Tamma+2);
+@import url(https://fonts.googleapis.com/css?family=Paytone+One);
+// 全局
+body {
+  font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', Meiryo, Verdana, Arial, sans-serif;
+  font-weight: 300;
+  @include media-breakpoint-down(xs) {
+    font-size: 14px;
+  }
+}
+$font_en: 'Playfair Display', serif;
+$baloo: 'Baloo Tamma 2', cursive;
+$paytone: 'Paytone One', sans-serif;
+.font_en {
+  font-family: $font_en;
+}
+.font_en2 {
+  font-family: $paytone;
+}
+p {
+  line-height: 2;
+  letter-spacing: 0.09em;
+}
+b {
+  font-weight: bold;
+}
+a:focus {
+  outline: 0;
+}
+a:hover,
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+body {
+  background: #1a1a1a;
+  color: #fff;
+}
+section {
+  padding: 70px 0;
+  overflow: hidden;
+  @include media-breakpoint-down(xs) {
+    padding: 50px 0;
+  }
+}
+// navbar
+.navbar_area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+.navbar-brand img {
+  height: 40px;
+}
+.nav_social {
+  display: flex;
+  align-items: center;
+  a {
+    color: #fff;
+    padding: 0 0.5rem;
+  }
+}
+.nav-link {
+  color: #fff !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  &:hover {
+    color: $orange !important;
+  }
+}
+@include media-breakpoint-up(md) {
+  .nav-link {
+    position: relative;
+    text-align: center;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      background: $orange;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      transition: 0.4s ease;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
+.navbar-collapse {
+  @include media-breakpoint-down(md) {
+    background: #1a1a1a;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    z-index: 9;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    .nav-link {
+      padding: 1rem 0.75rem;
+    }
+    .nav_social {
+      padding-top: 1.5rem;
+      justify-content: center;
+    }
+  }
+}
+// 選單按鈕
+.icon_menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  span,
+  &:before,
+  &:after {
+    content: '';
+    position: relative;
+    display: inline-block;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s ease;
+    opacity: 1;
+    transform-origin: left top;
+    right: 0;
+    top: 0;
+  }
+  span {
+    width: 100%;
+  }
+  &:hover {
+    span,
+    &:before,
+    &:after {
+      width: 100%;
+    }
+  }
+  &.icon_close:hover {
+    span {
+      opacity: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+      transition-delay: 0s, 0.2s;
+    }
+    &:after {
+      transform: rotate(-45deg);
+      transition-delay: 0s, 0.2s;
+      right: 1px;
+      top: 6px;
+    }
+  }
+}
+// footer
+.footer {
+  padding: 60px 0 120px 0;
+  a {
+    color: #fff;
+  }
+  .social_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    a {
+      padding: 0.5rem 1rem;
+    }
+  }
+  .copyright {
+    margin-top: 2rem;
+    color: #8b8b8b;
+    font-size: 14px;
+  }
+}
+// youtube
+.video_container {
+  position: relative;
+
+  padding-bottom: 56.25%;
+
+  padding-top: 30px;
+
+  height: 0;
+
+  overflow: hidden;
+}
+
+.video_container iframe,
+.video_container object,
+.video_container embed {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+// btn
+.btn_line {
+  position: relative;
+  display: inline-block;
+  border: 1px solid $orange;
+  color: #fff;
+  padding: 0.4rem 35px 0.25rem 35px;
+  font-family: $baloo;
+  letter-spacing: 0.15em;
+  transition: 0.4s ease;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    background: $orange;
+    left: -15px;
+    top: calc(50% - 1px);
+    transition: 0.4s ease;
+  }
+  &:hover {
+    color: $orange;
+    &::before {
+      left: calc(100% - 15px);
+    }
+  }
+}
+.swiper-pagination {
+  position: static;
+}
+.swiper-button-next:after,
+.swiper-container-rtl .swiper-button-prev:after,
+.swiper-button-prev:after,
+.swiper-container-rtl .swiper-button-next:after {
+  content: '';
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev,
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../img/right.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  background-image: url(../../img/left.svg);
+  right: auto;
+  left: -40px;
+}
+.swiper-pagination-bullet {
+  background: #fff;
+}
+
+.btn-outline-danger {
+  border-width: 2px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  font-size: 0.95rem;
+}
+.row_sm {
+  @include media-breakpoint-down(xs) {
+    .col-6 {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
+.line_right {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: $orange;
+    margin-left: 0.75rem;
+  }
+  @include media-breakpoint-down(sm) {
+    &::before {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: $orange;
+      margin-right: 0.75rem;
+    }
+  }
+}
+
+// pagination
+.pagination {
+  font-family: $paytone;
+  flex-wrap: wrap;
+  .page-link {
+    margin: 0.25rem;
+  }
+  .page_prev,
+  .page_next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    a {
+      display: block;
+    }
+    img {
+      height: 1rem;
+    }
+    .page-link {
+      border: 0;
+    }
+  }
+}
+
+// modal
+.modal-header,
+.modal-footer {
+  border: 0;
+}
